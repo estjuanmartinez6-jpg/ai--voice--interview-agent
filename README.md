@@ -18,20 +18,20 @@ The system features an autonomous interviewer persona ("Alex") that conducts rea
 
 ```mermaid
 graph TD
-    subgraph Browser Client (React + Web Speech API)
+    subgraph BrowserClient ["Browser Client (React + Web Speech API)"]
         Mic["Microphone Input"] --> STT["Web Speech Recognition (STT)"]
         STT -->|"Silence Detection (2s) / Manual Send"| ClientLogic["Voice Loop Controller"]
         ClientLogic -->|"Echo Prevention Lock"| Mute["Mute Mic while AI Speaks"]
         TTS["SpeechSynthesis (TTS Audio Playback)"] --> UserSpeaker["Audio Speaker"]
     end
 
-    subgraph Backend Agent Gateway (Node.js / Express)
+    subgraph BackendGateway ["Backend Agent Gateway (Node.js / Express)"]
         SSE["Server-Sent Events (SSE) Stream /api/chat/stream"]
         Fallback["Model Fallback Cascade (gemini-3.5-flash-lite -> gemini-3.5-flash)"]
         PromptEngine["System Prompt & Conversational State Grounding"]
     end
 
-    subgraph Foundation Model Layer (Google AI Studio)
+    subgraph FoundationLayer ["Foundation Model Layer (Google AI Studio)"]
         Gemini["Google Gemini 3.5 Flash"]
         AuditGen["Automated B2 Rubric Evaluator (JSON Mode)"]
     end
