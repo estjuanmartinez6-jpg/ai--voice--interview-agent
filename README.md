@@ -12,6 +12,12 @@ Combines browser-native **Speech-to-Text (STT)** and **Text-to-Speech (TTS)** wi
 
 ---
 
+## 🖥️ Application Interface
+
+![AI Voice Interview Agent Interface](preview.png)
+
+---
+
 ## 🎙️ Interactive Voice Loop Architecture
 
 The system features an autonomous interviewer persona ("Alex") that conducts realistic, conversational interviews while managing voice turn-taking and echo suppression:
